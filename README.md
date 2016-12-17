@@ -1,30 +1,26 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+> **Passion**: strong and barely controllable emotion according to Google search. My background is in banking industry, and seeing people suffering to get a loan or get high interest rate drove me to  want to change this and hence my passion for wanting to resolve this.
+
 
 ### Purpose
-The Sinatra Skeleton:
+  This web application will solve the following problem
+<ol>
+<li>0% Interest rate for the average American</li>
+<li>Illegal loan lending by loan shark</li>
+<li>Students and Immigrant financial Education</li>
+</ol>
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
 
-### Quickstart
 
-1.  `bundle install`
-2.  `shotgun config.ru`
 
-As needed, create models & migrations with the `rake` tasks:
+### Project
+<p>This will connect borrowers and lenders, borrowers will be able to sponsor lenders or borrow them money with 0% APR.
+Also,borrowers will be able to choose to donate all the money to the non-profit, if they want the non-profit to distribute it. Lenders will be able to accept donation from multiple borrowers.</p>
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
 
-### Contributing
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
 
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
+### MVP
+Borrowers will be able to create account and accept money from lenders.
+Lenders will be able to create account and donate money.
 
-Be prepared to give and receive specific, actionable, and kind feedback!
+
