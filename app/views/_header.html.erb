@@ -1,0 +1,10 @@
+<% if current_user %>
+  <a href="/users/<%= current_user.id %>"><%= current_user.name %></a>
+  <form action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" class="sign-out-link" value="sign out" />
+  </form>
+<% else %>
+  <a href="/users/new">register</a> |
+  <a id="login" href="/sessions/new">log in</a>
+<% end %>
