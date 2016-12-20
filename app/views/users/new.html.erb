@@ -1,0 +1,27 @@
+registration form
+
+
+<h2>Create a new user</h2>
+
+<form method="post" action="/users">
+  <div class="field">
+    <label for="user_name">Name</label>
+    <input type="text" name="user[name]" id="name" />
+  </div>
+  <div class="field">
+    <label for="user_email">Email</label>
+    <input type="text" name="user[email]" id="email" />
+  </div>
+  <div class="field">
+    <label for="user_password">Password</label>
+    <input type="password" name="user[password]" id="password" />
+  </div>
+  <!-- <div class="field">
+    <label for="user_balance">Balance</label>
+    <input type="number" name="user[balance]" id="balance" />
+  </div> -->
+
+  <div class="field">
+    <input type="submit" value="Create New User"/>
+  </div>
+</form>

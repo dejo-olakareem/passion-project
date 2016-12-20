@@ -1,0 +1,21 @@
+<h1><%= @user.name %></h1>
+<!-- show user's questions -->
+<% if @user.account %>
+    <h1><%=@user.account.balance  %></h1>
+    <ul>
+    <% @user.debts.each do |debt| %>
+    <li><%=debt.amount%> from
+    <%=debt.lender.name%></li>
+    <% end %>
+    </ul>
+    <ul>
+    <% @user.credits.each do |credit| %>
+    <li><%=credit.amount%> to
+    <%=credit.borrower.name%></li>
+    <% end %>
+    </ul>
+<% else %>
+   SIGN UP FOR AN ACCOUNT
+
+<% end %>
+
