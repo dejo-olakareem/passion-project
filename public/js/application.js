@@ -4,7 +4,26 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-
+showRegisterForm()
 
 });
 
+var showRegisterForm = function(){
+  $("#register").on("click",function(e){
+      e.preventDefault()
+      var url = $(this).attr("href")
+      var method = "GET"
+
+      console.log(url,method)
+      $.ajax({
+        url: url,
+        method: method
+      }).done(function(res){
+        console.log(res)
+       // $("#new").append(res)
+         // $("new").html(res)
+         $(".form").html(res)
+
+      })
+  })
+}

@@ -1,5 +1,10 @@
 get '/users/new' do
-  erb :'users/new.html'
+  if request.xhr?
+    p "YES"
+    erb :'users/_new.html', layout: false
+  else
+    erb :'users/_new.html' ,layout:true
+  end
 end
 
 
