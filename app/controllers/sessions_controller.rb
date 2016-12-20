@@ -7,10 +7,11 @@ end
 #post login form
 post '/sessions' do
   @user = User.find_by(email: params[:email])
-  if login(@user) #create new session
+  if @user &&  User.authenticate( params[:email],params[:password]) #create new session
    # redirect '/sessions' #redirect back to sessions index page
+   login(@user)
     redirect :"/users/#{@user.id}"
-      else
+  else
     erb :'sessions/new.html' # show new sessions view again(potentially displaying errors)
   end
 

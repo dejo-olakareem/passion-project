@@ -16,12 +16,12 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  def self.authenticate
-    @user = User.find_by_email(params[:email])
-    if @user.password == params[:password]
-      login(@user)
+  def self.authenticate(user_email,user_password)
+    @user = User.find_by_email(user_email)
+    if @user
+      @user.password == user_password
     else
-      redirect_to '/'
+      false
     end
   end
 end

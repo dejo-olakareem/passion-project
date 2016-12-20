@@ -6,7 +6,6 @@ end
 #post registration form
 get '/users/:id' do
   @user = User.find(params[:id])
-
   # if user is trying to view their own page, let 'em'
   if current_user == @user
     erb :"/users/show.html"
