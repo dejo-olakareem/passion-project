@@ -1,0 +1,21 @@
+<div class =form>
+<form class="sub_form" method="post" action="/users/<%=@user.id%>/messages">
+
+  <div class="field">
+    <label for="balance">Title</label>
+    <input type="text" name="message[title]" id="title"
+     />
+     <textarea placeholder="State Your Need!" name="message[text]"rows="2" cols="31"></textarea>
+  </div>
+
+  <div class="field">
+    <label for="debt_bal">Amount</label>
+    <input type="text" name="message[amount]" id="amount" placeholder="0" />
+  </div>
+
+
+  <div class="field">
+    <input class="btn btn-primary btn-block btn-large" type="submit" value="Create message"/>
+  </div>
+  </form>
+</div>

@@ -1,9 +1,17 @@
 <!-- <h1 class="new"> WELCOME TO LEND ZER0</h1><br> -->
 <!-- <a href="users/new">Register</a> -->
-<div class="form">
-<!-- <h1> This are all other users associated with LEND ZERO </h1>
-<% @users.each do |user| %>
-<br> <%#= user.name  %>
+<div>
+<h1> Change the world help with LEND ZERO </h1>
+<% @messages.each do |message| %>
 <br>
-<% end %> -->
+<%= message.title %>
+<br>
+<%= message.text %>
+<br>
+<%= message.amount %>
+<br>
+ <% if message.user_id == current_user.id %>
+ <a href="/users/<%=@user.id%>/messages/new ">EDIT</a>
+<% end %>
+
 </div>
