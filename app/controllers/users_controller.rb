@@ -18,16 +18,26 @@ get '/users/:id' do
 end
 
 post '/users' do
-
+  p "*" * 10
+  p params
   @user = User.new(params[:user])
-
-  if @user.save #if variable saved in conditional, that obj will be saved
-    login(@user)
-    redirect "/users/#{@user.id}"
-else
-  # TODO Show the user a descriptive error message
-  redirect '/'
-end
+  if @user && params[:user][:password].length > 0
+    if @user.save #if variable saved in conditional, that obj will be saved
+      login(@user)
+      if request.xhr?
+        erb :"users/show.html", layout: false
+      else
+        redirect "/users/#{@user.id}"
+      end
+    else
+      @errors = @user.errors.full_messages
+    # TODO Show the user a descriptive error message
+      erb :"/users/_new.html"
+    end
+  else
+    @errors = "Password must be entered."
+    erb :"/users/_new.html"
+  end
 end
 
 #user profile page
