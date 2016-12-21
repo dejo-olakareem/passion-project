@@ -1,10 +1,12 @@
-require 'bcrypt'
 class User < ActiveRecord::Base
   # Remember to create a migration!
   has_many :debts, class_name: "Transaction", foreign_key: "borrower_id"
   has_many :credits, class_name: "Transaction", foreign_key: "lender_id"
   belongs_to :account
   has_many :messages
+  validates :name , presence: true
+  validates :email,  uniqueness: true ,presence: true
+  validates :password, presence: true, length: {in: 4..100}
   include BCrypt
 
   def password

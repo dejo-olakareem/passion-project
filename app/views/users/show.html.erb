@@ -14,8 +14,10 @@
     <%=credit.borrower.name%></li>
     <% end %>
     </ul>
+    <a href="/users/<%=@user.id%>/messages/new ">Find A helper</a>
+    <a href="/transactions/new">Initiate a Transaction</a>
 <% else %>
-   SIGN UP FOR AN ACCOUNT
+   <a href="/accounts/new">SIGN UP FOR AN ACCOUNT</a>
 
 <% end %>
 

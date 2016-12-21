@@ -17,9 +17,14 @@
 
   <title></title>
 </head>
+<header>
+  <%= erb :'_header.html' %>
+<!-- This should be moved to body later -->
+</header>
 <body>
-<%= erb :'_header.html' %>
+  <div id="main">
+    <%= yield %>
+  </div>
 
-  <%= yield %>
 </body>
 </html>
