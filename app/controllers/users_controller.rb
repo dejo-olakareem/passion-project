@@ -1,6 +1,5 @@
 get '/users/new' do
   if request.xhr?
-    p "YES"
     erb :'users/_new.html', layout: false
   else
     erb :'users/_new.html' ,layout:true

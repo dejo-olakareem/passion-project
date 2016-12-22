@@ -1,17 +1,16 @@
 <!-- <h1 class="new"> WELCOME TO LEND ZER0</h1><br> -->
 <!-- <a href="users/new">Register</a> -->
 <div>
-<h1> Change the world help with LEND ZERO </h1>
-<% @messages.each do |message| %>
-<br>
-<%= message.title %>
-<br>
-<%= message.text %>
-<br>
-<%= message.amount %>
-<br>
- <% if message.user_id == current_user.id %>
- <a href="/users/<%=@user.id%>/messages/new ">EDIT</a>
-<% end %>
-
+  <h1> Change the world help with LEND ZERO </h1>
+  <% @messages.each do |message| %>
+    <% if current_user && message.user_id == current_user.id %>
+      <h3>Title: <a href="/users/<%=message.user_id%>/messages/<%=message.id%>/edit"><%= message.title %></a></h3>
+    <% else %>
+      <h3>Title: <%= message.title %></h3>
+    <% end %>
+    <p>Description: <%= message.text %></p>
+    <p><%= "$#{message.amount}" %></p>
+  <% end %>
 </div>
+
+<!-- Change route to edit and I can also make the user name a link -->
