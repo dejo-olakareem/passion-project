@@ -1,0 +1,21 @@
+<div class =form>
+  <form class="sub_form" method="post" action="/users/<%=@user.id%>/messages/<%=@message.id %>">
+    <input type="hidden" name="_method" value="put">
+    <div class="field">
+      <label for="balance">Title</label>
+      <input type="text" placeholder="<%= @message.title %>" name="message[title]" id="title"
+      />
+      <textarea placeholder="<%= @message.text %>" name="message[text]"rows="2" cols="31"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="debt_bal">Amount</label>
+      <input type="text" placeholder="<%= @message.amount %>" name="message[amount]" id="amount" placeholder="0" />
+    </div>
+
+
+    <div class="field">
+      <input class="btn btn-primary btn-block btn-large" type="submit" value="Update message"/>
+    </div>
+  </form>
+</div>

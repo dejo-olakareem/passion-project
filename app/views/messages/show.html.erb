@@ -1,1 +1,12 @@
-<%  %>
+<div class="form"></div>
+<div>
+  <h1> This are your messages </h1>
+  <h3>Title: <a href="/users/<%=@message.user_id%>/messages/<%=@message.id%>/edit"><%= @message.title %></a></h3>
+  <p>Description: <%= @message.text %></p>
+  <p><%= "$#{@message.amount}" %></p>
+
+  <form action="/users/<%= @message.user_id %>/messages/<%=@message.id%>" method = "post" >
+    <input type="hidden" name="_method" value = "delete" />
+    <input type ="submit" value="DELETE" >
+  </form>
+</div>

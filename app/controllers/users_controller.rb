@@ -17,8 +17,6 @@ get '/users/:id' do
 end
 
 post '/users' do
-  p "*" * 10
-  p params
   @user = User.new(params[:user])
   if @user && params[:user][:password].length > 0
     if @user.save #if variable saved in conditional, that obj will be saved
@@ -31,12 +29,13 @@ post '/users' do
     else
       @errors = @user.errors.full_messages
     # TODO Show the user a descriptive error message
-      erb :"/users/_new.html"
-    end
-  else
-    @errors = "Password must be entered."
     erb :"/users/_new.html"
   end
+else
+  @errors = "Password must be entered."
+  erb :"/users/_new.html"
+end
 end
 
 #user profile page
+

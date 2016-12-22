@@ -1,23 +1,36 @@
-<h1><%= @user.name %></h1>
-<!-- show user's questions -->
-<% if @user.account %>
-    <h1><%=@user.account.balance  %></h1>
-    <ul>
-    <% @user.debts.each do |debt| %>
-    <li><%=debt.amount%> from
-    <%=debt.lender.name%></li>
+<div>
+    <h1><%= @user.name %></h1>
+    <% if @user.account %>
+        <h1><%=@user.account.balance  %></h1>
+        <ul>
+            <% @user.debts.each do |debt| %>
+                <li>
+                    <%=debt.amount%> from
+                    <%=debt.lender.name%>
+                </li>
+            <% end %>
+        </ul>
+        <ul>
+            <% @user.credits.each do |credit| %>
+            <li>
+                <%=credit.amount%> to
+                <%=credit.borrower.name%>
+            </li>
+                <% end %>
+        </ul>
+            <a href="/users/<%=@user.id%>/messages/new ">Find A helper</a>
+            <a href="/transactions/new">Initiate a Transaction</a>
+    <% else %>
+            <a href="/accounts/new">SIGN UP FOR AN ACCOUNT</a>
     <% end %>
-    </ul>
-    <ul>
-    <% @user.credits.each do |credit| %>
-    <li><%=credit.amount%> to
-    <%=credit.borrower.name%></li>
-    <% end %>
-    </ul>
-    <a href="/users/<%=@user.id%>/messages/new ">Find A helper</a>
-    <a href="/transactions/new">Initiate a Transaction</a>
-<% else %>
-   <a href="/accounts/new">SIGN UP FOR AN ACCOUNT</a>
+</div>
 
-<% end %>
+
+        <% if @user.messages %>
+            <% @user.messages.each do |message| %>
+                <h3>Title:<a href="/users/<%=message.user_id%>/messages/<%=message.id%>"><%= message.title %></a></h3>
+                <p>Description: <%= message.text %></p>
+                <p><%= "$#{message.amount}" %></p>
+            <% end %>
+        <% end %>
 

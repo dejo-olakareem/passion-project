@@ -10,8 +10,8 @@ post '/sessions' do
   if @user &&  User.authenticate( params[:email],params[:password]) #create new session
    # redirect '/sessions' #redirect back to sessions index page
    login(@user)
-    redirect :"/users/#{@user.id}"
-  else
+   redirect :"/users/#{@user.id}"
+ else
     erb :'sessions/new.html' # show new sessions view again(potentially displaying errors)
   end
 
