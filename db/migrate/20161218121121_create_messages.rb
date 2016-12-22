@@ -5,6 +5,8 @@ class CreateMessages < ActiveRecord::Migration
       t.string :text, {limit: 15}
       t.integer :amount,default: 0
       t.references :user
+
+      t.timestamp
     end
   end
 end
